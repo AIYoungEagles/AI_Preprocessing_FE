@@ -1,0 +1,216 @@
+mat-list {
+  max-width: 600px;
+  margin: 1rem auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+mat-list-item {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+mat-list-item:hover {
+  background-color: #f9f9f9;
+}
+
+mat-list-item:last-child {
+  border-bottom: none;
+}
+
+mat-icon[mat-list-icon] {
+  color: #3f51b5;
+  margin-right: 12px;
+  font-size: 24px;
+}
+
+.file-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.file-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.file-size {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.remove-btn {
+  color: #f44336;
+  cursor: pointer;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  color: #d32f2f;
+}
+
+.process-button-container {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button[mat-raised-button].process-btn {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-raised-button].process-btn:hover {
+  background-color: #303f9f;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: 500;
+  color: #3f51b5;
+  font-size: 2rem;
+}
+
+.review-layout {
+  display: flex;
+  height: 90vh;
+  overflow: hidden;
+  background-color: #f5f7fa;
+}
+
+.sidebar {
+  width: 30vw;
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  margin: 1rem;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  height: 80vh;
+  flex-shrink: 0;
+}
+
+.sidebar mat-list-item {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.sidebar mat-list-item.active {
+  background-color: #e8f0fe;
+  font-weight: 600;
+}
+
+.editor-column {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 90vh;
+  overflow: hidden;
+  margin: 1rem;
+  box-sizing: border-box;
+}
+
+.editor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  margin: 0 1rem 0.5rem 1rem;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.editor mat-card {
+  padding: 1rem;
+  box-shadow: none;
+}
+
+.editor mat-form-field {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.editor-submit-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+  background: #f5f7fa;
+}
+
+.editor-submit-container button {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.editor-submit-container button:hover {
+  background-color: #3f51b5;
+}
+
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.active {
+  background: #e0e0e0;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3f51b5;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+
+::ng-deep .conf-tooltip {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 4px;
+}

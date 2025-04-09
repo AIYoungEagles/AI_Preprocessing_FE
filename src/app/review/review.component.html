@@ -1,0 +1,53 @@
+<div *ngIf="loading" class="loading">
+  <div class="spinner"></div>
+  <p></p>
+  <p>Processing documents...</p>
+</div>
+
+<div *ngIf="!loading" class="review-layout">
+  <div class="review-layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">Extracted Data</div>
+      <mat-nav-list>
+        <mat-list-item
+          *ngFor="let doc of documents; index as i"
+          [class.active]="i === selectedIndex"
+        >
+          <div class="file-row" style="width: 100%;" (click)="selectDoc(i)">
+            <span>{{ doc.documentTitle }}</span>
+            <mat-icon class="remove-btn" (click)="removeDoc(i); $event.stopPropagation()">close</mat-icon>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </aside>
+    <div class="editor-column">
+      <section class="editor">
+        <mat-card>
+          <mat-card-title>{{ documents[selectedIndex]?.documentTitle }}</mat-card-title>
+          <mat-card-content>
+            <ng-container *ngFor="let field of documents[selectedIndex]?.fields">
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>
+                  <span>
+                    {{ field.name }}<ng-container *ngIf="field.isProtected"> (read only)</ng-container>
+                  </span>
+                  <mat-icon
+                    *ngIf="!field.isConfident"
+                    matTooltip="Low confidence of field correctness"
+                    matTooltipClass="conf-tooltip"
+                    matTooltipPosition="above"
+                    style="color: #ff9800; margin-left: 6px; vertical-align: middle;"
+                  >warning</mat-icon>
+                </mat-label>
+                <input matInput [readonly]="field.isProtected" [(ngModel)]="field.value" />
+              </mat-form-field>
+            </ng-container>
+          </mat-card-content>
+        </mat-card>
+      </section>
+      <div class="editor-submit-container">
+        <button mat-raised-button (click)="submit()">Submit All</button>
+      </div>
+    </div>
+  </div>
+</div>

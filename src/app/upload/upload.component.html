@@ -1,0 +1,53 @@
+<div class="upload-wrapper">
+  <div class="upload-body">
+    <h2>Upload Documents</h2>
+
+    <div
+      class="upload-dropzone"
+      [class.dragover]="isDraggingOver"
+      (drop)="onDrop($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave()"
+    >
+      <p>Drag and drop files here or</p>
+      <button mat-raised-button class="select-files-btn" (click)="fileInputRef.nativeElement.click()">
+        Select Files
+      </button>
+      <input #fileInput type="file" multiple hidden (change)="onFileSelected($event)" />
+    </div>
+
+    <mat-list *ngIf="files.length">
+      <mat-list-item *ngFor="let file of files; let i = index" class="upload-item">
+        <div class="mdc-list-item__content">
+          <div class="upload-left">
+            <mat-icon class="upload-icon">{{ getFileIcon(file.file) }}</mat-icon>
+            <span class="upload-name">{{ file.file.name }}</span>
+          </div>
+
+          <div class="upload-right">
+            <mat-form-field appearance="fill" class="upload-type-select">
+              <mat-select [(ngModel)]="file.selectedType" placeholder="Document Type">
+                <mat-option value="PRIOR_AUTH">PRIOR_AUTH</mat-option>
+                <mat-option value="ELIGIBILITY_CHECK">ELIGIBILITY_CHECK</mat-option>
+                <mat-option value="COVERAGE_VALIDATION">COVERAGE_VALIDATION</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-icon class="upload-remove" (click)="removeFile(i)">close</mat-icon>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="process-button-container">
+      <button
+        mat-raised-button
+        class="process-btn"
+        (click)="extractData()"
+        [disabled]="!allTypesSelected()"
+      >
+        Extract Data
+      </button>
+    </div>
+  </div>
+</div>

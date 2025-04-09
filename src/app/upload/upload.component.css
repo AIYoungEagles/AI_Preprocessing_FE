@@ -1,0 +1,193 @@
+.upload-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
+  padding: 2rem;
+  text-align: center;
+}
+
+.upload-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 640px;
+}
+
+.upload-dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  background: #fafafa;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.upload-dropzone.dragover {
+  background-color: #e8f0fe;
+  border-color: #3f51b5;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.2);
+}
+
+.upload-dropzone p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+button.select-files-btn {
+  border: 2px solid #3f51b5;
+  color: #3f51b5;
+  background: transparent;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+button.select-files-btn:hover {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.process-button-container {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button[mat-raised-button].process-btn {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-raised-button].process-btn:hover {
+  background-color: #303f9f;
+}
+
+.process-btn {
+  border-radius: 4px;
+}
+
+mat-list-item.upload-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1rem; /* increased height */
+  gap: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+mat-list-item.upload-item .mdc-list-item__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+
+.upload-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.upload-icon {
+  color: #3f51b5;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.upload-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #333;
+}
+
+.upload-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+mat-form-field.upload-type-select {
+  width: 220px;
+  flex-shrink: 0;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+mat-form-field.upload-type-select .mat-form-field-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+mat-select {
+  font-size: 14px;
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+mat-select .mat-select-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+}
+
+mat-option {
+  background-color: white !important;
+  color: #333 !important;
+  font-size: 14px;
+  text-align: center;
+}
+
+.upload-remove {
+  color: #f44336;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.upload-remove:hover {
+  color: #d32f2f;
+}
+
+mat-list {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 640px;
+  width: 100%;
+}
+
+button[mat-raised-button].process-btn:disabled {
+  background-color: #ccc !important;
+  color: #666 !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
