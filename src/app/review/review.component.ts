@@ -19,6 +19,7 @@ interface Field {
 }
 
 interface DocumentData {
+  id: string;
   documentTitle: string;
   fields: Field[];
 }
@@ -51,7 +52,8 @@ export class ReviewComponent implements OnInit {
   selectedIndex: number = 0;
   loading = true;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) {
+  }
 
   ngOnInit1(): void {
     const navState = history.state;
@@ -69,6 +71,7 @@ export class ReviewComponent implements OnInit {
       // Replace with actual API call in real scenario
       this.documents = [
         {
+          id: 'sadsdas',
           documentTitle: 'Doc1',
           fields: [
             {
@@ -92,6 +95,7 @@ export class ReviewComponent implements OnInit {
           ],
         },
         {
+          id: 'sadsdas',
           documentTitle: 'Doc2',
           fields: [
             {
@@ -115,6 +119,7 @@ export class ReviewComponent implements OnInit {
           ],
         },
         {
+          id: 'sadsdas',
           documentTitle: 'Doc4',
           fields: [
             {
@@ -138,6 +143,7 @@ export class ReviewComponent implements OnInit {
           ],
         },
         {
+          id: 'sadsdas',
           documentTitle: 'Doc5',
           fields: [
             {
@@ -215,6 +221,9 @@ export class ReviewComponent implements OnInit {
 
   submit() {
     console.log('Submitting documents:', this.documents);
+    this.router.navigate(['/upload']).then(() => {
+      alert('Your documents were sent for further processing');
+    });
     // Call your API here
   }
 
